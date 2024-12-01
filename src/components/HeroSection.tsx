@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-blue-100 pt-20">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-blue-100 pt-20" id='home'>
       {/* Animated background elements */}
       <div className="absolute inset-0 w-full h-full">
         <motion.div
