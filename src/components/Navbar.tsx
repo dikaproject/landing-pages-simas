@@ -25,24 +25,17 @@ export default function Navbar() {
   
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
-      
-        // Close menu with slight delay to ensure smooth transition
-        setTimeout(() => {
-          setIsOpen(false);
-          
-          const target = document.querySelector(href);
-          if (target) {
-            const offsetTop = target.getBoundingClientRect().top + window.scrollY;
-            const navHeight = 80; // Navbar height
-            
-            window.scrollTo({
-              top: offsetTop - navHeight,
-              behavior: "smooth"
-            });
-          }
-        }, 300); // Add small delay for menu close animation
+        setIsOpen(false); // Immediately close menu
+        
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       };
-
+      
   return (
     <nav
     className={`fixed w-full z-50 transition-all duration-300 ${

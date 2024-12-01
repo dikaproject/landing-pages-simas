@@ -23,6 +23,10 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
+section {
+  scroll-margin-top: 80px; /* Matches navbar height */
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
