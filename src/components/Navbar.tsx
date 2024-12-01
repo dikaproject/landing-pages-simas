@@ -23,10 +23,8 @@ export default function Navbar() {
       return () => window.removeEventListener("scroll", handleScroll);
     }, []);
   
-    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const handleDesktopScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
-        setIsOpen(false); // Immediately close menu
-        
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({
@@ -36,6 +34,19 @@ export default function Navbar() {
         }
       };
       
+      const handleMobileScroll = (href: string) => {
+        setIsOpen(false);
+        setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 100);
+      };
+
   return (
     <nav
     className={`fixed w-full z-50 transition-all duration-300 ${
@@ -63,17 +74,17 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleScroll(e, link.href)}
-                className="relative text-gray-600 hover:text-blue-600 transition-colors group cursor-pointer"
-              >
-                {link.title}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full" />
-              </a>
-            ))}
+          {navLinks.map((link) => (
+    <a
+      key={link.href}
+      href={link.href}
+      onClick={(e) => handleDesktopScroll(e, link.href)}
+      className="relative text-gray-600 hover:text-blue-600 transition-colors group cursor-pointer"
+    >
+      {link.title}
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full" />
+    </a>
+  ))}
             <button className="bg-blue-600/90 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition-colors backdrop-blur-sm">
               Laporkan
             </button>
@@ -100,7 +111,7 @@ export default function Navbar() {
   <a
     key={link.href}
     href={link.href}
-    onClick={(e) => handleScroll(e, link.href)}
+    onClick={() => handleMobileScroll(link.href)}
     className="block text-gray-600 hover:text-blue-600 transition-colors py-2 cursor-pointer"
   >
     {link.title}
