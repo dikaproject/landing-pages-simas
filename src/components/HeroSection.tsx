@@ -34,7 +34,7 @@ export default function HeroSection() {
           >
             <div className="flex items-center space-x-4">
               <Image 
-                src="/banyumas.png"
+                src="/Banyumas.png"
                 alt="Banyumas Logo"
                 width={80}
                 height={80}
