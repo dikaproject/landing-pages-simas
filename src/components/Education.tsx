@@ -180,7 +180,7 @@ type SharePlatform = {
 
 export default function Education() {
   const [selectedPlatform, setSelectedPlatform] = useState<SharePlatform | null>(null);
-  const websiteUrl = "https://simas-banyumas.com"; 
+  const websiteUrl = "https://simas-website.vercel.app/"; 
 
   return (
     <>
