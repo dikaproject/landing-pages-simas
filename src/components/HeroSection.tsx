@@ -39,6 +39,7 @@ export default function HeroSection() {
                 width={80}
                 height={80}
                 className="mb-4"
+                priority
               />
               <motion.div
                 initial={{ width: 0 }}

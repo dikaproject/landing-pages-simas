@@ -68,6 +68,7 @@ export default function Navbar() {
               alt="SiMas Logo"
               width={40}
               height={40}
+              priority
             />
             <span className="font-bold text-xl text-blue-600">SiMas</span>
           </motion.div>
