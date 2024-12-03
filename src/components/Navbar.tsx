@@ -64,13 +64,13 @@ export default function Navbar() {
             className="flex items-center space-x-4"
           >
             <Image
-              src="/banyumas.png"
+              src="/Banyumas.png"
               alt="SiMas Logo"
               width={40}
               height={40}
               priority
             />
-            <span className="font-bold text-xl text-blue-600">SiMas</span>
+            <span className="font-bold text-sm sm:text-xl text-blue-600">SiMas ( Sinergi Banyumas )</span>
           </motion.div>
 
           {/* Desktop Menu */}

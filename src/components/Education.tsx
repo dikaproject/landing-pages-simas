@@ -237,6 +237,7 @@ export default function Education() {
           ))}
         </div>
 
+
         {/* Video Section */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -253,25 +254,25 @@ export default function Education() {
                 Pelajari lebih dalam tentang anti korupsi melalui video
                 interaktif kami
               </p>
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-blue-700 transition-colors">
+              <a 
+                href="https://www.youtube.com/embed/mrzsEsOrt4A" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-blue-700 transition-colors w-fit"
+              >
                 <Play size={20} />
                 Tonton Video
-              </button>
+              </a>
             </div>
-            <div className="relative h-64 md:h-80">
-              <Image
-                src="/video-thumbnail.jpg"
-                alt="Video Thumbnail"
-                fill
-                className="object-cover rounded-xl"
-              />
-              <div className="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer"
-                >
-                  <Play className="w-6 h-6 text-blue-600" />
-                </motion.div>
+            <div className="relative h-64 md:h-80 rounded-xl overflow-hidden">
+              <div className="absolute inset-0">
+                <iframe
+                  src="https://www.youtube.com/embed/mrzsEsOrt4A"
+                  title="Video Edukasi Anti Korupsi"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>

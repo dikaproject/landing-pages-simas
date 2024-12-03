@@ -3,8 +3,12 @@
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useState } from "react";
+import { VideoModal } from "./VideoModal";
 
 export default function HeroSection() {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-blue-100 pt-20" id='home'>
       {/* Animated background elements */}
@@ -89,12 +93,19 @@ export default function HeroSection() {
                 <ArrowRight size={20} />
               </motion.button>
               <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-colors text-lg"
-              >
-                Lihat Video
-              </motion.button>
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={() => setShowVideo(true)}
+    className="px-8 py-4 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-colors text-lg"
+  >
+    Lihat Video
+  </motion.button>
+
+  <VideoModal
+    isOpen={showVideo}
+    onClose={() => setShowVideo(false)}
+    videoUrl="https://www.youtube.com/embed/OkgbKHkErjs"
+  />
             </motion.div>
           </motion.div>
 
@@ -107,7 +118,7 @@ export default function HeroSection() {
           >
             <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-48 sm:w-72 h-48 sm:h-72 bg-blue-200 rounded-full blur-3xl" />
             <Image
-              src="/anti-korupsi-banyumas.jpg"
+              src="/images_tentang.png"
               alt="Anti Corruption Hero Image"
               fill
               className="object-cover rounded-2xl shadow-2xl"
